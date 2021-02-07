@@ -1,0 +1,12 @@
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\bin\Debug\netcoreapp3.1\Persistencia.Database.deps.json
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\bin\Debug\netcoreapp3.1\Persistencia.Database.runtimeconfig.json
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\bin\Debug\netcoreapp3.1\Persistencia.Database.runtimeconfig.dev.json
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\bin\Debug\netcoreapp3.1\Persistencia.Database.dll
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\bin\Debug\netcoreapp3.1\Persistencia.Database.pdb
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.csprojAssemblyReference.cache
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.AssemblyInfoInputs.cache
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.AssemblyInfo.cs
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.csproj.CoreCompileInputs.cache
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.dll
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.pdb
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.genruntimeconfig.cache
