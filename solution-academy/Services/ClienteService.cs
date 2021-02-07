@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Services
 {
-    class ClienteService
+    public class ClienteService 
     {
+        public void Add() { }
+        public void Cancel() { }
     }
 }

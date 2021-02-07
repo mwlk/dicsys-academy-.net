@@ -7,7 +7,7 @@ namespace Persistencia.Database.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=Pizzerial;Integrated Security = True");
+            optionsBuilder.UseSqlServer(@"Data Source=localhost;Initial Catalog=Pizzeria;Integrated Security = True");
         }
 
         public  virtual DbSet<Cliente> Clientes { get; set; }

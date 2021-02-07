@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Services
+﻿namespace Services
 {
     class DetallePedidoService
     {
+        public void Add() { }
+        public void Cancel() { }
     }
 }

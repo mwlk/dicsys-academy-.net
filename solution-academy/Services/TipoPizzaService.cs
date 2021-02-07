@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Services
+﻿namespace Services
 {
     class TipoPizzaService
     {
+        public void Add() { }
+        public void Cancel() { }
     }
 }
