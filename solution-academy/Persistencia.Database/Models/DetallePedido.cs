@@ -7,9 +7,10 @@ namespace Persistencia.Database.Models
         public int Id { get; set; }
         public int CantidadPizza { get; set; }
         //public float Precio { get; set; } //calcula en Pizza 
-        public int PizzaId { get; set; }
+        public int PedidoId { get; set; }
 
-        public List<Pizza> Pizzas { get; set; }
+        public int PizzaId { get; set; }
+        public Pizza Pizza { get; set; }
         public Pedido Pedido { get; set; }
     }
 }

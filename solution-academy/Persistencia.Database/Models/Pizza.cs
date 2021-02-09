@@ -7,7 +7,6 @@ namespace Persistencia.Database.Models
         public int Id { get; set; }
         public string Nombre { get; set; }
         public float Precio { get; set; }
-        public int IngredienteId { get; set; }
         public int TipoPizzaId { get; set; }
         public int VariedadPizzaId { get; set; }
 

@@ -6,7 +6,6 @@ namespace Persistencia.Database.Models
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public int PizzaId { get; set; }
 
         public List<Pizza> Pizzas { get; set; }
     }

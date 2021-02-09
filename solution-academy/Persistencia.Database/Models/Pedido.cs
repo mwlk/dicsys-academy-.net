@@ -11,7 +11,6 @@ namespace Persistencia.Database.Models
         public int DemoraEstimada { get; set; }
         public int Estado { get; set; }
         public float Total { get; set; }
-        public int DetallePedidoId { get; set; }
         public int ClienteId { get; set; }
 
         public Factura Factura { get; set; }

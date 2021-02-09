@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistencia.Database.Models;
 
 namespace Persistencia.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210209175254_Update-Cliente")]
+    partial class UpdateCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,14 +74,9 @@ namespace Persistencia.Database.Migrations
                     b.Property<int>("PedidoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PizzaId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PedidoId");
-
-                    b.HasIndex("PizzaId");
 
                     b.ToTable("DetallePedidos");
                 });
@@ -120,6 +117,9 @@ namespace Persistencia.Database.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("PizzaId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -165,6 +165,12 @@ namespace Persistencia.Database.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int?>("DetallePedidoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IngredienteId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(15)
@@ -181,6 +187,8 @@ namespace Persistencia.Database.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DetallePedidoId");
 
                     b.HasIndex("TipoPizzaId")
                         .IsUnique();
@@ -250,15 +258,7 @@ namespace Persistencia.Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Persistencia.Database.Models.Pizza", "Pizza")
-                        .WithMany()
-                        .HasForeignKey("PizzaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Pedido");
-
-                    b.Navigation("Pizza");
                 });
 
             modelBuilder.Entity("Persistencia.Database.Models.Factura", b =>
@@ -285,6 +285,10 @@ namespace Persistencia.Database.Migrations
 
             modelBuilder.Entity("Persistencia.Database.Models.Pizza", b =>
                 {
+                    b.HasOne("Persistencia.Database.Models.DetallePedido", null)
+                        .WithMany("Pizzas")
+                        .HasForeignKey("DetallePedidoId");
+
                     b.HasOne("Persistencia.Database.Models.TipoPizza", "TipoPizza")
                         .WithOne("Pizza")
                         .HasForeignKey("Persistencia.Database.Models.Pizza", "TipoPizzaId")
@@ -305,6 +309,11 @@ namespace Persistencia.Database.Migrations
             modelBuilder.Entity("Persistencia.Database.Models.Cliente", b =>
                 {
                     b.Navigation("Pedidos");
+                });
+
+            modelBuilder.Entity("Persistencia.Database.Models.DetallePedido", b =>
+                {
+                    b.Navigation("Pizzas");
                 });
 
             modelBuilder.Entity("Persistencia.Database.Models.Pedido", b =>

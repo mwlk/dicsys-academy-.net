@@ -1,4 +1,6 @@
-﻿namespace Persistencia.Database.Models
+﻿using System.Collections.Generic;
+
+namespace Persistencia.Database.Models
 {
     class Cliente
     {
@@ -7,6 +9,7 @@
         public string Apellido { get; set; }
         public string? NroTelefono { get; set; }
 
-        public Pedido Pedido { get; set; }
+        public List<Pedido> Pedidos { get; set; }
+        
     }
 }

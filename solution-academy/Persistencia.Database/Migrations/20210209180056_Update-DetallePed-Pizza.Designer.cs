@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistencia.Database.Models;
 
 namespace Persistencia.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210209180056_Update-DetallePed-Pizza")]
+    partial class UpdateDetallePedPizza
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,8 +80,6 @@ namespace Persistencia.Database.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("PedidoId");
-
-                    b.HasIndex("PizzaId");
 
                     b.ToTable("DetallePedidos");
                 });
@@ -250,15 +250,7 @@ namespace Persistencia.Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Persistencia.Database.Models.Pizza", "Pizza")
-                        .WithMany()
-                        .HasForeignKey("PizzaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Pedido");
-
-                    b.Navigation("Pizza");
                 });
 
             modelBuilder.Entity("Persistencia.Database.Models.Factura", b =>

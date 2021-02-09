@@ -10,8 +10,8 @@ using Persistencia.Database.Models;
 namespace Persistencia.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210207050755_initial")]
-    partial class initial
+    [Migration("20210209174010_Update-Pedido-Detalle")]
+    partial class UpdatePedidoDetalle
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,10 +71,7 @@ namespace Persistencia.Database.Migrations
                     b.Property<int>("CantidadPizza")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PedidoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PizzaId")
+                    b.Property<int>("PedidoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -141,9 +138,6 @@ namespace Persistencia.Database.Migrations
 
                     b.Property<int>("DemoraEstimada")
                         .HasMaxLength(2)
-                        .HasColumnType("int");
-
-                    b.Property<int>("DetallePedidoId")
                         .HasColumnType("int");
 
                     b.Property<int>("Estado")
@@ -261,7 +255,9 @@ namespace Persistencia.Database.Migrations
                 {
                     b.HasOne("Persistencia.Database.Models.Pedido", "Pedido")
                         .WithMany("DetallePedidos")
-                        .HasForeignKey("PedidoId");
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Pedido");
                 });
