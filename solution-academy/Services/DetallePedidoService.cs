@@ -2,7 +2,8 @@
 {
     class DetallePedidoService
     {
-        public void Add() { }
-        public void Cancel() { }
+        public void Create() { }
+        public void Get() { }
+        public void GetById(int id) { }
     }
 }

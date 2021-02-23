@@ -1,9 +1,19 @@
-﻿namespace Services
+﻿using Persistencia.Database.Models;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Services
 {
-    class PizzaService
+    public class PizzaService
     {
-        public void Add() { }
-        public void Cancel() { }
-        public void GetPizzasFavoritas() { }
+        public List<Pizza> GetAll()
+        {
+            using ApplicationDbContext db = new ApplicationDbContext();
+            var list = db.Pizzas.ToList();
+            return list;
+        }
+        public void Create() { }
+        public void Suspend() { }
+        public void GetFavoritePizza() { }
     }
 }

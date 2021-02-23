@@ -11,8 +11,7 @@ namespace Persistencia.Database.Configuration
         public FacturaConfig(EntityTypeBuilder<Factura> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Total).IsRequired().HasMaxLength(4);
-            builder.Property(x => x.FechaHoraEmision).IsRequired();
+            builder.Property(x => x.FormaPago).IsRequired().HasMaxLength(1);
         }
     }
 }

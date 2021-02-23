@@ -4,9 +4,10 @@ namespace Services
 {
     class FacturaService
     {
-        public void Add() { }
+        public void Create() { }
         public void Cancel() { }
-        public void GetFacturaByCliente() { }
+        public void GetByPedido(int id) { }
         public void GetIngresosInPeriod(DateTime inicioPeriod, DateTime finalPeriod) { }
+        public void GetByFormaPago(int id) { }
     }
 }
