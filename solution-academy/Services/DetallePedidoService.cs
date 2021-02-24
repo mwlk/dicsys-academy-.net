@@ -1,6 +1,6 @@
 ﻿namespace Services
 {
-    class DetallePedidoService
+    public class DetallePedidoService
     {
         public void Create() { }
         public void Get() { }

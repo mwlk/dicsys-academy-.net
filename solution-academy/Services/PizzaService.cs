@@ -13,7 +13,7 @@ namespace Services
             return list;
         }
         public void Create() { }
-        public void Suspend() { }
+        
         public void GetFavoritePizza() { }
     }
 }

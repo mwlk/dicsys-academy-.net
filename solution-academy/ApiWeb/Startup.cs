@@ -25,6 +25,9 @@ namespace WebApi
             services.AddSwaggerGen();
 
             //agregar servicios
+            services.AddScoped<DetallePedidoService>();
+            services.AddScoped<FacturaService>();
+            services.AddScoped<IngredienteService>();
             services.AddScoped<PedidoService>();
             services.AddScoped<PizzaService>();
         }

@@ -2,7 +2,7 @@
 
 namespace Services
 {
-    class FacturaService
+    public class FacturaService
     {
         public void Create() { }
         public void Cancel() { }
