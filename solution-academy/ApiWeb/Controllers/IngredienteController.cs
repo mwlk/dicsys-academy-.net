@@ -47,13 +47,6 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
-        // GET api/<IngredienteController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST api/<IngredienteController>
         [HttpPost]
         public IActionResult Post([FromBody] Ingrediente ingrediente)
@@ -62,7 +55,7 @@ namespace WebApi.Controllers
 
             try
             {
-                var flag = _ingredienteService.GetIngrediente(ingrediente);
+                var flag = _ingredienteService.ValIngrediente(ingrediente);
                 if (flag == true)
                 {
                     _ingredienteService.Add(ingrediente);
@@ -95,7 +88,7 @@ namespace WebApi.Controllers
                 var ingrediente = _ingredienteService.Delete(id);
                 if (!ingrediente)
                 {
-                    return BadRequest();
+                    return NotFound();
                 }
                 oResponse.Code = 1;
                 oResponse.Data = ingrediente;
@@ -105,9 +98,28 @@ namespace WebApi.Controllers
             {
                 oResponse.Message = "Error al eliminar " + e.Message;
             }
-            
+            return Ok(oResponse);
+        }
 
-            
+        [HttpPut]
+        public IActionResult Update([FromBody] Ingrediente ingrediente)
+        {
+            Response oResponse = new Response();
+
+            try
+            {
+                _ingredienteService.Update(ingrediente);
+
+                oResponse.Code = 1;
+                oResponse.Message = "ingrediente actualizado";
+                oResponse.Data = ingrediente;
+            }
+            catch (Exception e)
+            {
+
+                oResponse.Message = "error al actualizar "+e.Message;
+            }
+
             return Ok(oResponse);
         }
     }

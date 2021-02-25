@@ -54,10 +54,20 @@ namespace Services
         }
         public void GetByPizza(int id) { }
 
-        public bool GetIngrediente(Ingrediente ingrediente)
-        {
-            ApplicationDbContext db = new ApplicationDbContext();
+        public void Update(Ingrediente ingrediente) {
+            using ApplicationDbContext db = new ApplicationDbContext();
 
+            Ingrediente oIngrediente = db.Ingredientes.Find(ingrediente.Id);
+
+            oIngrediente.Nombre = ingrediente.Nombre;
+
+            db.Entry(oIngrediente).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public bool ValIngrediente(Ingrediente ingrediente)
+        {
+            using ApplicationDbContext db = new ApplicationDbContext();
             var ing = db.Ingredientes.Where(i => i.Nombre == ingrediente.Nombre).FirstOrDefault();
             if (ing == null)
             {
