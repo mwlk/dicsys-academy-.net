@@ -9,3 +9,4 @@ C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Deb
 C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.dll
 C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.pdb
 C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.genruntimeconfig.cache
+C:\Users\mirko.MIRKO\source\repos\solution-academy\Persistencia.Database\obj\Debug\netcoreapp3.1\Persistencia.Database.csprojAssemblyReference.cache

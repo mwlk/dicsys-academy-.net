@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Persistencia.Database.Models
+﻿namespace Persistencia.Database.Models
 {
     public class DetallePedido
     {

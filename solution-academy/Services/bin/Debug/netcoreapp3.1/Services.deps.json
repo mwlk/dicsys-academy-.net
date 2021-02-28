@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "Services/1.0.0": {
         "dependencies": {
-          "Persistencia.Database": "1.0.0"
+          "Persistencia.Database": "1.0.0",
+          "System.Linq.Expressions": "4.3.0"
         },
         "runtime": {
           "Services.dll": {}

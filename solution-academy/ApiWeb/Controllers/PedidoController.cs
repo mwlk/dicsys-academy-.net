@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Persistencia.Database.Models;
 using Services;
 using System;
 using WebApi.Models;
@@ -46,17 +47,74 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
-        /*[HttpGet]
-        [Route("test")]
-        public IActionResult Get2(string s)
+        [HttpGet]
+        [Route("GetById")]
+        public IActionResult GetById(int id)
         {
-            Response oResponse = new Response
+            Response oResponse = new Response();
+            try
             {
-                Code = 1,
-                Data = pedidoService.Add() + s,
-                Message = "si funciona"
-            };
+                var flag = _pedidoService.GetById(id);
+                if (flag == null)
+                {
+                    oResponse.Message = "no se encontro";
+                    return NotFound();
+                }
+                else
+                {
+                    oResponse.Code = 1;
+                    oResponse.Message = "pedido encontrado con exito";
+                    oResponse.Data = flag;
+                }
+            }
+            catch (Exception e)
+            {
+
+                oResponse.Message = "error al buscar pedido " + e.Message;
+            }
+            
             return Ok(oResponse);
-        }*/
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] Pedido pedido)
+        {
+            Response oResponse = new Response();
+
+            try
+            {
+                _pedidoService.Add(pedido);
+
+                oResponse.Code = 1;
+                oResponse.Message = "pedido guardado";
+                oResponse.Data = pedido;
+            }
+            catch (Exception e)
+            {
+                oResponse.Message = "error al guardar pedido " + e.Message;
+            }
+            return Ok(oResponse);
+        }
+
+        [HttpGet]
+        [Route("test")]
+        public IActionResult Test()
+        {
+            Response oResponse = new Response();
+
+            try
+            {
+                var resp = _pedidoService.GetPopularVariety();
+
+                oResponse.Code = 1;
+                oResponse.Message = "tamanho favorito";
+                oResponse.Data = resp;
+            }
+            catch (Exception e)
+            {
+                oResponse.Message = "error ocurrido " + e.Message;
+            }
+            return Ok(oResponse);
+        }
     }
 }
