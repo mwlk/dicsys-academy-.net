@@ -97,12 +97,29 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
-        /* PUT api/<FacturaController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet]
+        [Route("GetIngresos")]
+        public IActionResult GetIngresos(DateTime start, DateTime end)
         {
+            Response oResponse = new Response();
+
+            try
+            {
+                var resp = _facturaService.GetIngresosInPeriod(start, end);
+                if (resp == null)
+                {
+                    return NotFound();
+                }
+                oResponse.Code = 1;
+                oResponse.Message = "resultado encontrado";
+                oResponse.Data = resp;
+            }
+            catch (Exception e)
+            {
+                oResponse.Message = "error ocurrido " + e.Message;
+            }
+            return Ok(oResponse);
         }
-        */
 
         
     }

@@ -51,8 +51,21 @@ namespace Services
             return factura;
         }
 
-        public void GetByPedido(int id) { }
-        public void GetIngresosInPeriod(DateTime inicioPeriod, DateTime finalPeriod) { }
+        public string GetIngresosInPeriod(DateTime start, DateTime end)
+        {
+            string resp = "";
+
+            using ApplicationDbContext db = new ApplicationDbContext();
+
+            var recaudacion = (from dp in db.DetallePedidos
+                               join p in db.Pedidos on dp.PedidoId equals p.Id
+                               where p.FechaHoraPedido > start && p.FechaHoraPedido < end
+                               select dp.Subtotal).Sum();
+
+            resp = "la recaudacion fue de $" + recaudacion + " entre las fechas " + start + " y " + end;
+            return resp;
+        }
         public void GetByFormaPago(int id) { }
+        public void GetByPedido(int id) { }
     }
 }

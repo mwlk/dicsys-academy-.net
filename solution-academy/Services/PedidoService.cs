@@ -78,49 +78,102 @@ namespace Services
             
             using ApplicationDbContext db = new ApplicationDbContext();
 
-            var media = (from dp in db.DetallePedidos
-                         where dp.Tamanho == 4
-                         select dp.Tamanho)
-                        .Count();
-
-            var normal = (from dp in db.DetallePedidos
-                         where dp.Tamanho == 8
-                         select dp.Tamanho)
-                       .Count();
-
-            var large = (from dp in db.DetallePedidos
-                         where dp.Tamanho == 12
-                         select dp.Tamanho)
-                       .Count();
-
-            var metro = (from dp in db.DetallePedidos
-                         where dp.Tamanho == 20
-                         select dp.Tamanho)
-                       .Count();
-
-            if (media > normal && media > large && media > metro)
+            try
             {
-                resp = "la pizza favorita es la media pizza";
-            } 
-            if (normal > media && normal > large && normal > metro)
-            {
-                resp = "la pizza favorita es la normal de 8 porciones";
+                var normal = (from dp in db.DetallePedidos
+                              where dp.Tamanho == 8
+                              select dp.Tamanho)
+                      .Count();
+
+                var large = (from dp in db.DetallePedidos
+                             where dp.Tamanho == 10
+                             select dp.Tamanho)
+                           .Count();
+
+                var extra = (from dp in db.DetallePedidos
+                             where dp.Tamanho == 12
+                             select dp.Tamanho)
+                           .Count();
+
+                if (normal > large && normal > extra)
+                    resp = "la pizza favorita es la de 8 porciones";
+
+                if (large > normal && large > extra)
+                    resp = "la pizza favorita es la de 10 porciones";
+
+                if (extra > normal && extra > large)
+                    resp = "la pizza favorita es la de 12 porciones";
             }
-            if (large > media && large > normal && large > metro)
+            catch (Exception e)
             {
-                resp = "la pizza favorita es la large de 12 porciones";
-            }
-            if (metro > media && metro > normal && metro > large)
-            {
-                resp = "la pizza favorita es la metro de 20 porciones";
-            }
 
+                throw new ApplicationException("ocurrio un error " + e.Message);
+            }
 
 
             return resp;
         }
 
-        public void GetPedidoByCliente(string nombre) { }
-        public void GetPedidosInPeriod(DateTime inicioPeriod, DateTime finalPeriod) { }
+        public string GetTipoFavorito()
+        {
+            string resp = "";
+
+            using ApplicationDbContext db = new ApplicationDbContext();
+            try
+            {
+                var piedra = (from dp in db.DetallePedidos
+                                 where dp.Tipo == 1
+                                 select dp.Tipo).Count();
+
+                var parrilla = (from dp in db.DetallePedidos
+                                 where dp.Tipo == 2
+                                 select dp.Tipo).Count();
+
+                var molde = (from dp in db.DetallePedidos
+                                 where dp.Tipo == 3
+                                 select dp.Tipo).Count();
+
+                if (piedra > parrilla && piedra > molde)
+                    resp = "la pizza favorita es a la piedra";
+
+                if (parrilla > piedra && parrilla > molde)
+                    resp = "la pizza favorita es a la parrilla";
+
+                if (molde > piedra && molde > parrilla)
+                    resp = "la pizza favorita es al molde";
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException("ocurrio un error " + e.Message);
+            }
+            return resp;
+        }
+
+        public string GetPedidosInPeriod(DateTime start, DateTime end)
+        {
+            string resp = "";
+
+            using ApplicationDbContext db = new ApplicationDbContext();
+
+            try
+            {
+                var cantidad = (from p in db.Pedidos
+                                where p.FechaHoraPedido > start && p.FechaHoraPedido < end
+                                select p).Count();
+
+                var monto = (from p in db.Pedidos
+                             join dp in db.DetallePedidos on p.Id equals dp.PedidoId
+                             where p.FechaHoraPedido > start && p.FechaHoraPedido < end
+                             select dp.Subtotal).Sum();
+
+                resp = "la cantidad de pedidos es: " + cantidad + " lo recaudado es: " + monto;
+            }
+            catch (Exception e)
+            {
+
+                throw new ApplicationException("error ocurrido " + e.Message);
+            }
+            return resp;
+        }
     }
 }

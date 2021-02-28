@@ -97,8 +97,8 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("test")]
-        public IActionResult Test()
+        [Route("VariedadFavorita")]
+        public IActionResult Variedad()
         {
             Response oResponse = new Response();
 
@@ -116,5 +116,53 @@ namespace WebApi.Controllers
             }
             return Ok(oResponse);
         }
+
+        [HttpGet]
+        [Route("TipoFavorito")]
+        public IActionResult Tipo()
+        {
+            Response oResponse = new Response();
+
+            try
+            {
+                var resp = _pedidoService.GetTipoFavorito();
+
+                oResponse.Code = 1;
+                oResponse.Message = "tipo favorito";
+                oResponse.Data = resp;
+            }
+            catch (Exception e)
+            {
+                oResponse.Message = "ocurrio un error " + e.Message;
+            }
+            return Ok(oResponse);
+        }
+
+        [HttpGet]
+        [Route("Pedidos-Montos")]
+        public IActionResult GetCantidadMontos(DateTime start, DateTime end)
+        {
+            Response oResponse = new Response();
+
+            try
+            {
+                var resp = _pedidoService.GetPedidosInPeriod(start, end);
+                if (resp == null)
+                {
+                    return NotFound();
+                }
+                oResponse.Code = 1;
+                oResponse.Message = "pedidos en periodo";
+                oResponse.Data = resp;
+            }
+            catch (Exception e)
+            {
+                oResponse.Message = "error ocurrido " + e.Message;
+            }
+
+            return Ok(oResponse);
+        }
+        
+
     }
 }
