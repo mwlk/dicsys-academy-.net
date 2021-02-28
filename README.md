@@ -9,3 +9,10 @@ create repository
 
 2)
 -add new migrations
+
+3)        
+-add service
+
+4)
+-create web api
+-add swagger
