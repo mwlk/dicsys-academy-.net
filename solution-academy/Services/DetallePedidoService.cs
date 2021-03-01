@@ -58,6 +58,7 @@ namespace Services
                         Tipo = detalle.Tipo,
                         Tamanho = detalle.Tamanho
                     };
+                    db.DetallePedidos.Add(oDetalle);
                 }
                 db.SaveChanges();
             }
