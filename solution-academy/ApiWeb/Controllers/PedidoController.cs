@@ -6,17 +6,29 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
+    /// <summary>
+    /// pedidos controller
+    /// </summary>
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class PedidoController : ControllerBase
     {
         private readonly PedidoService _pedidoService;
 
+        /// <summary>
+        /// inject service
+        /// </summary>
+        /// <param name="pedidoService"></param>
         public PedidoController(PedidoService pedidoService)
         {
             _pedidoService = pedidoService;
         }
 
+        /// <summary>
+        /// return all pedidos
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetAll")]
         public IActionResult Get()
@@ -47,6 +59,11 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// return pedido by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetById")]
         public IActionResult GetById(int id)
@@ -76,6 +93,14 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// add pedido
+        /// </summary>
+        /// <remarks> 
+        /// insert NombreCliente, DemoraEstimada, (FechaHoraPedido es NOW y Estado por defecto es 1)
+        /// </remarks>
+        /// <param name="pedido"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody] Pedido pedido)
         {
@@ -96,6 +121,10 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// return variedad favorita
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("VariedadFavorita")]
         public IActionResult Variedad()
@@ -117,6 +146,10 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// return tipo favorito
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("TipoFavorito")]
         public IActionResult Tipo()
@@ -138,6 +171,12 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// return pedidos-monto in period
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("Pedidos-Montos")]
         public IActionResult GetCantidadMontos(DateTime start, DateTime end)
@@ -162,7 +201,5 @@ namespace WebApi.Controllers
 
             return Ok(oResponse);
         }
-        
-
     }
 }

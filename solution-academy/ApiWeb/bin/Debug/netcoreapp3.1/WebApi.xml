@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:WebApi.Controllers.DetallePedidoController">
+            <summary>
+            detalle pedido controller
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.DetallePedidoController.#ctor(Services.DetallePedidoService)">
+            <summary>
+            inject service
+            </summary>
+            <param name="detallePedidoService"></param>
+        </member>
+        <member name="M:WebApi.Controllers.DetallePedidoController.GetAll">
+            <summary>
+            return all detalles 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.DetallePedidoController.Post(Persistencia.Database.Models.DetallePedido)">
+            <summary>
+            add detalle
+            </summary>
+            <remarks>insert PedidoId, PizzaId, Cantidad, Tipo, Tamanho
+            </remarks>
+            <param name="detalle"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Controllers.FacturaController">
+            <summary>
+            factura controller
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.FacturaController.#ctor(Services.FacturaService)">
+            <summary>
+            inject service
+            </summary>
+            <param name="facturaService"></param>
+        </member>
+        <member name="M:WebApi.Controllers.FacturaController.GetAll">
+            <summary>
+            return all facturas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.FacturaController.Get(System.Int32)">
+            <summary>
+            return factura by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.FacturaController.Post(Persistencia.Database.Models.Factura)">
+            <summary>
+            add factura
+            </summary>
+            <remarks>
+            insert FormaPago, PedidoId
+            </remarks>
+            <param name="factura"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.FacturaController.GetIngresos(System.DateTime,System.DateTime)">
+            <summary>
+            method return ingresos
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Controllers.IngredienteController">
+            <summary>
+            ingrediente controller
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.IngredienteController.#ctor(Services.IngredienteService)">
+            <summary>
+            inject service
+            </summary>
+            <param name="ingredienteService"></param>
+        </member>
+        <member name="M:WebApi.Controllers.IngredienteController.Get">
+            <summary>
+            return all ingredientes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.IngredienteController.Post(Persistencia.Database.Models.Ingrediente)">
+            <summary>
+            add ingrediente
+            </summary>
+            <remarks>
+            insert Nombre</remarks>
+            <param name="ingrediente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.IngredienteController.Delete(System.Int32)">
+            <summary>
+            delete ingrediente by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.IngredienteController.Update(Persistencia.Database.Models.Ingrediente)">
+            <summary>
+            update ingrediente
+            </summary>
+            <param name="ingrediente"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Controllers.PedidoController">
+            <summary>
+            pedidos controller
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.PedidoController.#ctor(Services.PedidoService)">
+            <summary>
+            inject service
+            </summary>
+            <param name="pedidoService"></param>
+        </member>
+        <member name="M:WebApi.Controllers.PedidoController.Get">
+            <summary>
+            return all pedidos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.PedidoController.GetById(System.Int32)">
+            <summary>
+            return pedido by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.PedidoController.Post(Persistencia.Database.Models.Pedido)">
+            <summary>
+            add pedido
+            </summary>
+            <remarks> 
+            insert NombreCliente, DemoraEstimada, (FechaHoraPedido es NOW y Estado por defecto es 1)
+            </remarks>
+            <param name="pedido"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.PedidoController.Variedad">
+            <summary>
+            return variedad favorita
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.PedidoController.Tipo">
+            <summary>
+            return tipo favorito
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.PedidoController.GetCantidadMontos(System.DateTime,System.DateTime)">
+            <summary>
+            return pedidos-monto in period
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Controllers.PizzaController">
+            <summary>
+            controller pizza
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.PizzaController.#ctor(Services.PizzaService)">
+            <summary>
+            inject service
+            </summary>
+            <param name="pizzaService"></param>
+        </member>
+        <member name="M:WebApi.Controllers.PizzaController.GetAll">
+            <summary>
+            return all pizzas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.PizzaController.Post(Persistencia.Database.Models.Pizza)">
+            <summary>
+            add pizza
+            </summary>
+            <remarks>
+            insert Nombre y Precio
+            </remarks>
+            <param name="pizza"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.PizzaController.Edit(Persistencia.Database.Models.Pizza)">
+            <summary>
+            edit pizza
+            </summary>
+            <param name="pizza"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Models.Response">
+            <summary>
+            generic class for response, by @hdeleon 
+            </summary>
+        </member>
+        <member name="P:WebApi.Models.Response.Code">
+            <summary>
+            code for return response, 1 is correct
+            </summary>
+        </member>
+        <member name="P:WebApi.Models.Response.Message">
+            <summary>
+            string with detalils
+            </summary>
+        </member>
+        <member name="P:WebApi.Models.Response.Data">
+            <summary>
+            service's data response 
+            </summary>
+        </member>
+    </members>
+</doc>

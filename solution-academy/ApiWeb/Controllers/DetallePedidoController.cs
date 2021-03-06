@@ -1,26 +1,34 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Persistencia.Database.Models;
 using Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using WebApi.Models;
 
 namespace WebApi.Controllers
 {
+    /// <summary>
+    /// detalle pedido controller
+    /// </summary>
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class DetallePedidoController : ControllerBase
     {
         private readonly DetallePedidoService _detallePedidoService;
 
+        /// <summary>
+        /// inject service
+        /// </summary>
+        /// <param name="detallePedidoService"></param>
         public DetallePedidoController(DetallePedidoService detallePedidoService)
         {
             _detallePedidoService = detallePedidoService;
         }
 
+        /// <summary>
+        /// return all detalles 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -43,6 +51,13 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// add detalle
+        /// </summary>
+        /// <remarks>insert PedidoId, PizzaId, Cantidad, Tipo, Tamanho
+        /// </remarks>
+        /// <param name="detalle"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody]DetallePedido detalle)
         {
@@ -62,7 +77,5 @@ namespace WebApi.Controllers
             }
             return Ok(oResponse);
         }
-        
-
     }
 }

@@ -3,7 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Services;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace WebApi
 {
@@ -22,7 +26,15 @@ namespace WebApi
             services.AddControllers();
 
             //add swagger
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(doc =>
+            {
+                doc.SwaggerDoc("v1.1", new OpenApiInfo { Title = "Pizzeria API", Version = "v1.1" });
+
+                var xmlFile = $"{ Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+
+                doc.IncludeXmlComments(xmlPath);
+            });
 
             //agregar servicios
             services.AddScoped<DetallePedidoService>();
@@ -45,7 +57,7 @@ namespace WebApi
 
             app.UseSwaggerUI( s =>
             {
-                s.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi Dicsys Academy");
+                s.SwaggerEndpoint("/swagger/v1.1/swagger.json", "WebApi Dicsys Academy");
                 s.RoutePrefix = string.Empty;
             });
 

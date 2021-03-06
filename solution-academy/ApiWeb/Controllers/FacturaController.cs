@@ -10,17 +10,29 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
+    /// <summary>
+    /// factura controller
+    /// </summary>
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class FacturaController : ControllerBase
     {
         private readonly FacturaService _facturaService;
-
+        
+        /// <summary>
+        /// inject service
+        /// </summary>
+        /// <param name="facturaService"></param>
         public FacturaController(FacturaService facturaService)
         {
             _facturaService = facturaService;
         }
-        // GET: api/<FacturaController>
+
+        /// <summary>
+        /// return all facturas
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetAll")]
         public IActionResult GetAll()
@@ -49,7 +61,11 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
-        // GET api/<FacturaController>/5
+        /// <summary>
+        /// return factura by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -75,7 +91,14 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
-        // POST api/<FacturaController>
+        /// <summary>
+        /// add factura
+        /// </summary>
+        /// <remarks>
+        /// insert FormaPago, PedidoId
+        /// </remarks>
+        /// <param name="factura"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody] Factura factura)
         {
@@ -97,6 +120,12 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// method return ingresos
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetIngresos")]
         public IActionResult GetIngresos(DateTime start, DateTime end)
@@ -120,7 +149,5 @@ namespace WebApi.Controllers
             }
             return Ok(oResponse);
         }
-
-        
     }
 }

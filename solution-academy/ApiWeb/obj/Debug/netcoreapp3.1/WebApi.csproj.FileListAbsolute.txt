@@ -68,3 +68,5 @@ C:\Users\mirko.MIRKO\source\repos\solution-academy\ApiWeb\bin\Debug\netcoreapp3.
 C:\Users\mirko.MIRKO\source\repos\solution-academy\ApiWeb\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\mirko.MIRKO\source\repos\solution-academy\ApiWeb\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\mirko.MIRKO\source\repos\solution-academy\ApiWeb\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\mirko.MIRKO\source\repos\solution-academy\ApiWeb\bin\Debug\netcoreapp3.1\WebApi.xml
+C:\Users\mirko.MIRKO\source\repos\solution-academy\ApiWeb\obj\Debug\netcoreapp3.1\WebApi.xml

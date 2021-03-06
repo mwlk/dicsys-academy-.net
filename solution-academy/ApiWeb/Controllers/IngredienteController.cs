@@ -2,24 +2,34 @@
 using Persistencia.Database.Models;
 using Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using WebApi.Models;
 
 namespace WebApi.Controllers
 {
+
+    /// <summary>
+    /// ingrediente controller
+    /// </summary>
+    [Produces("application/json")] 
     [Route("api/[controller]")]
     [ApiController]
     public class IngredienteController : ControllerBase
     {
         private readonly IngredienteService _ingredienteService;
 
+        /// <summary>
+        /// inject service
+        /// </summary>
+        /// <param name="ingredienteService"></param>
         public IngredienteController(IngredienteService ingredienteService)
         {
             _ingredienteService = ingredienteService;
         }
-        // GET: api/<IngredienteController>
+        
+        /// <summary>
+        /// return all ingredientes
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -47,7 +57,13 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
-        // POST api/<IngredienteController>
+        /// <summary>
+        /// add ingrediente
+        /// </summary>
+        /// <remarks>
+        /// insert Nombre</remarks>
+        /// <param name="ingrediente"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody] Ingrediente ingrediente)
         {
@@ -78,7 +94,11 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
-        // DELETE api/<IngredienteController>/5
+        /// <summary>
+        /// delete ingrediente by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -101,6 +121,11 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// update ingrediente
+        /// </summary>
+        /// <param name="ingrediente"></param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Update([FromBody] Ingrediente ingrediente)
         {

@@ -16,3 +16,7 @@ create repository
 4)
 -create web api
 -add swagger
+
+5) 
+- version 1.1
+Documenting API

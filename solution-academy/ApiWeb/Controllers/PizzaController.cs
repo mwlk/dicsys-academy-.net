@@ -6,17 +6,29 @@ using Persistencia.Database.Models;
 
 namespace WebApi.Controllers
 {
+    /// <summary>
+    /// controller pizza
+    /// </summary>
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class PizzaController: ControllerBase
     {
         private readonly PizzaService _pizzaService;
 
+        /// <summary>
+        /// inject service
+        /// </summary>
+        /// <param name="pizzaService"></param>
         public PizzaController(PizzaService pizzaService)
         {
             _pizzaService = pizzaService;
         }
 
+        /// <summary>
+        /// return all pizzas
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -44,6 +56,14 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// add pizza
+        /// </summary>
+        /// <remarks>
+        /// insert Nombre y Precio
+        /// </remarks>
+        /// <param name="pizza"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody]Pizza pizza)
         {
@@ -72,6 +92,11 @@ namespace WebApi.Controllers
             return Ok(oResponse);
         }
 
+        /// <summary>
+        /// edit pizza
+        /// </summary>
+        /// <param name="pizza"></param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Edit(Pizza pizza)
         {
