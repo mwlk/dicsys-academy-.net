@@ -8,14 +8,14 @@ create repository
 
 
 2)
--add new migrations
+- add new migrations
 
 3)        
--add service
+- add service
 
 4)
--create web api
--add swagger
+- create web api
+- add swagger
 
 5) 
 - version 1.1
