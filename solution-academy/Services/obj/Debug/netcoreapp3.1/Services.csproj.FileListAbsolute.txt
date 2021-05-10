@@ -10,3 +10,15 @@ C:\Users\mirko.MIRKO\source\repos\solution-academy\Services\obj\Debug\netcoreapp
 C:\Users\mirko.MIRKO\source\repos\solution-academy\Services\bin\Debug\netcoreapp3.1\Persistencia.Database.dll
 C:\Users\mirko.MIRKO\source\repos\solution-academy\Services\bin\Debug\netcoreapp3.1\Persistencia.Database.pdb
 C:\Users\mirko.MIRKO\source\repos\solution-academy\Services\obj\Debug\netcoreapp3.1\Services.csproj.CopyComplete
+D:\Repos\solution-academy\Services\bin\Debug\netcoreapp3.1\Services.deps.json
+D:\Repos\solution-academy\Services\bin\Debug\netcoreapp3.1\Services.dll
+D:\Repos\solution-academy\Services\bin\Debug\netcoreapp3.1\Services.pdb
+D:\Repos\solution-academy\Services\bin\Debug\netcoreapp3.1\Persistencia.Database.dll
+D:\Repos\solution-academy\Services\bin\Debug\netcoreapp3.1\Persistencia.Database.pdb
+D:\Repos\solution-academy\Services\obj\Debug\netcoreapp3.1\Services.csprojAssemblyReference.cache
+D:\Repos\solution-academy\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfoInputs.cache
+D:\Repos\solution-academy\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfo.cs
+D:\Repos\solution-academy\Services\obj\Debug\netcoreapp3.1\Services.csproj.CoreCompileInputs.cache
+D:\Repos\solution-academy\Services\obj\Debug\netcoreapp3.1\Services.csproj.CopyComplete
+D:\Repos\solution-academy\Services\obj\Debug\netcoreapp3.1\Services.dll
+D:\Repos\solution-academy\Services\obj\Debug\netcoreapp3.1\Services.pdb
